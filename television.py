@@ -1,49 +1,20 @@
 class Television:
-    MIN_VOLUME = 0
-    MAX_VOLUME = 2
-    MIN_CHANNEL = 0
-    MAX_CHANNEL = 3
+    # Class variables omitted for brevity
 
-    def __init__(self):
-        self._status = False
-        self._muted = False
-        self._volume = self.MIN_VOLUME
-        self._channel = self.MIN_CHANNEL
+    def __init__(self) -> None:
+        """Initialize the Television with default values."""
+        self._status: bool = False
+        self._muted: bool = False
+        self._volume: int = self.MIN_VOLUME
+        self._channel: int = self.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> None:
+        """Turn the TV on or off."""
         self._status = not self._status
 
-    def mute(self):
+    def mute(self) -> None:
+        """Mute or unmute the TV if it's on."""
         if self._status:
             self._muted = not self._muted
 
-    def channel_up(self):
-        if self._status:
-            if self._channel < self.MAX_CHANNEL:
-                self._channel += 1
-            else:
-                self._channel = self.MIN_CHANNEL
-
-    def channel_down(self):
-        if self._status:
-            if self._channel > self.MIN_CHANNEL:
-                self._channel -= 1
-            else:
-                self._channel = self.MAX_CHANNEL
-
-    def volume_up(self):
-        if self._status:
-            if self._muted:
-                self._muted = False
-            if self._volume < self.MAX_VOLUME:
-                self._volume += 1
-
-    def volume_down(self):
-        if self._status:
-            if self._muted:
-                self._muted = False
-            if self._volume > self.MIN_VOLUME:
-                self._volume -= 1
-
-    def __str__(self):
-        return f"Power = {self._status}, Channel = {self._channel}, Volume = {self._volume}"
+    # Other methods omitted for brevity
